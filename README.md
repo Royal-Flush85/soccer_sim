@@ -1,77 +1,59 @@
-⚽ Soccer League Simulation
+# ⚽ Soccer League Simulation
 
-A data-driven soccer league simulator that models teams, players, fixtures, and match outcomes using probabilistic methods.
+A **data-driven soccer league simulator** that models teams, players, fixtures, and match outcomes using probabilistic methods.
 
-✨ Features
+---
 
-JSON-based player and team datasets
+## ✨ Features
 
-Round-robin fixture generation with home/away balancing
+- JSON-based **player and team datasets**
+- **Round-robin fixture generation** with home/away balancing
+- **Week-by-week simulation** with persistent season state
+- **Beta distribution–based match modeling** for realistic randomness
+- **Live league table updates** via Streamlit
 
-Week-by-week simulation with persistent season state
+---
 
-Beta distribution–based match modeling for realistic randomness
+## 🧠 Simulation Model
 
-Live league table updates via Streamlit
+Possession and scoring probabilities are sampled using **Beta distributions**, enabling:
 
-🧠 Simulation Model
+- **Controlled randomness**
+- **More realistic match variance** than uniform or fixed values
+- Team strength derived from **aggregated player attributes**
 
-Possession & scoring probabilities are sampled using Beta distributions, allowing:
+> Beta distributions are commonly used in sports analytics to model probabilities constrained between 0 and 1.
 
-Controlled randomness
+---
 
-More realistic match variance than uniform or fixed values
+## 🗂 Data Design
 
-Team strength is derived from aggregated player attributes
+- `players.json`: Individual player attributes (supports position-specific stats)
+- `teams.json`: Team metadata and roster mapping
 
-Beta distributions are commonly used in sports analytics to model probabilities constrained between 0 and 1.
+**Benefits of JSON design:**
 
-🗂 Data Design
+- Easy dataset swapping (realistic vs fictional teams)
+- Supports **future database integration**
 
-players.json: Individual player attributes (position-specific stats supported)
+---
 
-teams.json: Team metadata and roster mapping
+## 🖥 User Interface
 
-JSON enables:
+- Interactive **Streamlit app**
+- Run matches **one week at a time**
+- **Reset season** at any point
+- Live league standings sorted by:
+  - Points
+  - Goal difference
+  - Goals scored
 
-Easy dataset swapping (realistic vs fictional teams)
+---
 
-Future database integration
+## 🧩 Tech Stack
 
-🖥 UI
-
-Interactive Streamlit app
-
-Run matches one week at a time
-
-Reset season at any point
-
-Live league standings sorted by:
-
-Points
-
-Goal difference
-
-Goals scored
-
-🧩 Tech Stack
-
-Python
-
-NumPy (probability & distributions)
-
-Pandas (table management)
-
-Streamlit (UI)
-
-JSON (data storage)
-
-🚀 Future Improvements
-
-Transfer market & player development
-
-Injury and fatigue modeling
-
-Elo-based or xG-based match engine
-
-Mobile deployment (Flutter / React Native frontend)
+- **Python**
+- **NumPy** – probability & distributions
+- **Pandas** – table management
+- **Streamlit** – UI
+- **JSON** – data stor
