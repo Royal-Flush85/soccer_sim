@@ -1,0 +1,103 @@
+[
+    {
+        "id": 1,
+        "name": "Manchester United",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 2,
+        "name": "Liverpool",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 3,
+        "name": "Chelsea",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 4,
+        "name": "Arsenal",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 5,
+        "name": "Tottenham",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 6,
+        "name": "Brighton",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 7,
+        "name": "Aston Villa",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 8,
+        "name": "Wolverhampton",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 9,
+        "name": "Brentford",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 10,
+        "name": "Everton",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 11,
+        "name": "Crystal Palace",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 12,
+        "name": "West Ham United",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 13,
+        "name": "Newcastle United",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 14,
+        "name": "Bournemouth",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 15,
+        "name": "Fulham",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 16,
+        "name": "Nottingham Forest",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 17,
+        "name": "Sheffield United",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 18,
+        "name": "Burnely",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 19,
+        "name": "Luton Town",
+        "team_formation": "4-2-3-1"
+    },
+    {
+        "id": 20,
+        "name": "Manchester City",
+        "team_formation": "4-2-3-1"
+    }
+    
+]
