@@ -1,4 +1,5 @@
 from src.match_sim import simulate_match
+from src.match_sim import simulate_match_2
 from src.league import LeagueTable
 from src.schedule import round_robin
 from src.schedule import round_robin_weeks
@@ -20,11 +21,26 @@ from src.schedule import round_robin_weeks
 
 class season:
     
+    class PlayerGoal:
+        def __init__(self, player):
+            self.player_name = player.name
+            self.player_id = player.id
+            self.goals = 0
+
+        def add_goal(self):
+            self.goals += 1
+
     def __init__(self, teams):
         self.teams = teams
         self.week_num = 0
         self.fixtures_by_week = round_robin_weeks(teams)
-        self.prev_result = []
+        self.prev_result = []#普通の結果
+        self.player_Goals = {}
+        for team in teams:
+            for player in team.players:
+                self.player_Goals[player.id] = (self.PlayerGoal(player))
+
+
     # running the entire season
     # why no self?
     def run_season(teams):
@@ -44,20 +60,43 @@ class season:
         return table.table
 
     '''prints out each week output, but does entire season'''
-    def run_season_entireWeeks(teams):
-        table = LeagueTable(teams)
-        fixtures_by_week = round_robin_weeks(teams)
+    def run_season_entireWeeks(self, table):
+        for week in range(len(self.fixtures_by_week)):
+            actual_week = week + self.week_num
+            if actual_week < len(self.fixtures_by_week):
+                week_fixtures = self.fixtures_by_week[actual_week]
+                tot_match_one_week = []
 
-        for week_num, week in enumerate(fixtures_by_week, start=1):
-            # enumerate gives the index, and the item in each thing
-            # that item refering to each week's match list
-            print(f"Week {week_num}")
-            for match in week:
-                result = simulate_match(match.home_team.players, match.away_team.players)
-                table.update(match.home_team, match.away_team, result)
-            print(table.table)  # optional: print league table after each week
+                for match in week_fixtures:
+                    result = simulate_match(match.home_team, match.away_team)
+                    table.update(match.home_team, match.away_team, result)
+                    tot_match_one_week.append(result)
+                    
 
-        return table.table
+                self.prev_result = tot_match_one_week
+            else:
+                self.week_num = actual_week
+                break
+        return table
+
+    def run_season_entireWeeks_player(self, table):
+        for week in range(len(self.fixtures_by_week)):
+            actual_week = week + self.week_num
+            if actual_week < len(self.fixtures_by_week):
+                week_fixtures = self.fixtures_by_week[actual_week]
+                tot_match_one_week = []
+
+                for match in week_fixtures:
+                    result = simulate_match_2(match.home_team, match.away_team)
+                    table.update(match.home_team, match.away_team, result)
+                    tot_match_one_week.append(result)
+                    self.track_player_goals(result)
+
+                self.prev_result = tot_match_one_week
+            else:
+                self.week_num = actual_week
+                break
+        return table
 
 
     def run_one_week(self, table):
@@ -75,5 +114,35 @@ class season:
         self.prev_result = tot_match_one_week #replacement, one week of match (reset)
         self.week_num += 1
         return table
+
+    def track_player_goals(self, result):
+        for event in result.home_tot_events:
+            if len(event) != 0 and event[0].goal:
+                self.player_Goals[event[0].shooter.id].add_goal()
+
+        for event in result.away_tot_events:
+            if len(event) != 0 and event[0].goal:
+                self.player_Goals[event[0].shooter.id].add_goal()
+
+    def run_one_week_player(self, table):
+        if self.week_num >= len(self.fixtures_by_week):
+            return table  # or raise StopIteration
+
+        week = self.fixtures_by_week[self.week_num]
+        tot_match_one_week = []
+        for match in week:
+            result = simulate_match_2(match.home_team, match.away_team) # returns MatchResult2 object
+            table.update(match.home_team, match.away_team, result)
+            tot_match_one_week.append(result)
+            self.track_player_goals(result)
+            #self.prev_result.append(result) #storing MatchResult objs
+            # ^above for keeping entire fixtures
+        self.prev_result = tot_match_one_week #replacement, one week of match (reset)
+        self.week_num += 1
+        return table
+    
+
+
+
 
         

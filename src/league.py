@@ -47,4 +47,5 @@ class LeagueTable:
             t1["T"] += 1
             t2["T"] += 1
 
+    
 

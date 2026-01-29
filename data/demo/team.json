@@ -2,7 +2,7 @@
     {
         "id": 1,
         "name": "Manchester United",
-        "team_formation": "4-2-3-1"
+        "team_formation": "5-2-3"
     },
     {
         "id": 2,
@@ -17,7 +17,7 @@
     {
         "id": 4,
         "name": "Arsenal",
-        "team_formation": "4-2-3-1"
+        "team_formation": "4-3-3"
     },
     {
         "id": 5,
@@ -37,7 +37,7 @@
     {
         "id": 8,
         "name": "Wolverhampton",
-        "team_formation": "4-2-3-1"
+        "team_formation": "5-3-2"
     },
     {
         "id": 9,
@@ -62,7 +62,7 @@
     {
         "id": 13,
         "name": "Newcastle United",
-        "team_formation": "4-2-3-1"
+        "team_formation": "4-3-3"
     },
     {
         "id": 14,
@@ -97,7 +97,7 @@
     {
         "id": 20,
         "name": "Manchester City",
-        "team_formation": "4-2-3-1"
+        "team_formation": "4-3-3"
     }
     
 ]
